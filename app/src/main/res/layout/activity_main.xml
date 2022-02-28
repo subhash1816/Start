@@ -6,98 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/username"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
-        android:background="@color/teal_200"
-        android:padding="12dp"
 
-        android:text="@string/Username"
+    <FrameLayout
+        android:id="@+id/F1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
 
-        android:textColor="#004D40"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Login1" />
-
-
-    <EditText
-        android:id="@+id/userinput"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-
-        android:layout_marginStart="68dp"
-        android:hint="Enter UserName"
-        android:inputType="textEmailAddress"
-        android:labelFor="@id/Passinput"
-        android:minHeight="48dp"
-
-        android:padding="12dp"
-        app:layout_constraintStart_toEndOf="@+id/username"
-        app:layout_constraintTop_toTopOf="@+id/username"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/Password"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="40dp"
-
-        android:background="@color/teal_200"
-        android:padding="12dp"
-        android:text="@string/Password"
-
-        android:textColor="#004D40"
-        android:textSize="16sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/username" />
-
-    <EditText
-        android:id="@+id/Passinput"
-
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-
-        android:hint="Enter Password"
-        android:inputType="numberPassword"
-
-        android:minHeight="48dp"
-        android:padding="12dp"
-        app:layout_constraintStart_toEndOf="@+id/Password"
-        app:layout_constraintTop_toTopOf="@+id/Password"
-        tools:ignore="SpeakableTextPresentCheck" />
-
-    <TextView
-        android:id="@+id/Login1"
-        android:layout_width="208dp"
-        android:layout_height="83dp"
-        android:layout_marginTop="180dp"
-        android:background="@color/purple_200"
-        android:paddingTop="12dp"
-        android:text="@string/Login"
-        android:textAlignment="center"
-        android:textColor="#5E35B1"
-        android:textSize="40sp"
-
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.428"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/Login"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="68dp"
-        android:layout_marginTop="40dp"
-        android:text="@string/Login"
-        android:textSize="40sp"
-        app:layout_constraintStart_toEndOf="@+id/Password"
-        app:layout_constraintTop_toBottomOf="@+id/Passinput"
-        tools:ignore="DuplicateSpeakableTextCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
