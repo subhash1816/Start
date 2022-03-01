@@ -25,7 +25,7 @@ class Firstpage : Fragment()
         val user=view.findViewById<EditText>(R.id.userinput)
         val pass=view.findViewById<EditText>(R.id.Passinput)
 
-       
+       val bundle=Bundle()
 
             login.setOnClickListener {
                 val username=user.text.toString()
@@ -35,8 +35,14 @@ class Firstpage : Fragment()
                            Toast.makeText(activity,"Fill the required fields",Toast.LENGTH_LONG).show()
                        }
                 else {
+                           bundle.putString("Message", username)
                            val transaction = fmanager.beginTransaction()
-                           transaction.replace(R.id.F1, Basic_frag())
+
+                           val fTwo = Basic_frag()
+                           fTwo.arguments=bundle
+
+
+                           transaction.replace(R.id.F1, fTwo)
                            transaction.addToBackStack(null)
                            transaction.commit()
                        }
