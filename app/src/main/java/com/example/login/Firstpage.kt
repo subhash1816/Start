@@ -38,7 +38,7 @@ class Firstpage : Fragment()
                            bundle.putString("Message", username)
                            val transaction = fmanager.beginTransaction()
 
-                           val fTwo = Basic_frag()
+                           val fTwo = Basicfrag()
                            fTwo.arguments=bundle
 
 
@@ -53,5 +53,7 @@ class Firstpage : Fragment()
 
         return view
     }
+
+
 
     }
