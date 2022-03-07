@@ -23,7 +23,6 @@ class Basicfrag : Fragment()
         val reargs = this.arguments
         val input = reargs?.getString("Message")
         message.text="Hii welcome $input"
-
         val recyclerView=view.findViewById<RecyclerView>(R.id.RecycleList)
         var adapter = Adapter(playersdata())
 
@@ -40,7 +39,7 @@ class Basicfrag : Fragment()
            var result = ArrayList<Names>()
         for (i in 0..19)
         {
-            var eachuser: Names = Names("Suresh Raina")
+            var eachuser: Names = Names("Suresh and yuvraj Raina")
             result.add(eachuser)
         }
            return result
