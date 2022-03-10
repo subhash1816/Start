@@ -11,7 +11,7 @@
         <androidx.constraintlayout.widget.ConstraintLayout
 
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
             android:background="@color/teal_200">
 
                 <TextView
@@ -36,7 +36,7 @@
                     android:layout_height="wrap_content"
 
                     android:layout_marginStart="80dp"
-                    android:hint="Enter Username"
+                    android:hint="@string/enter_username"
                     android:inputType="textEmailAddress"
                     android:labelFor="@id/Passinput"
                     android:minHeight="48dp"
@@ -45,7 +45,8 @@
                     app:layout_constraintBottom_toBottomOf="@+id/username"
                     app:layout_constraintStart_toEndOf="@+id/username"
                     app:layout_constraintTop_toTopOf="@+id/username"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="" />
 
                 <TextView
                     android:id="@+id/Password"
@@ -70,7 +71,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
 
-                    android:hint="Enter password"
+                    android:hint="@string/enter_password"
                     android:inputType="numberPassword"
 
                     android:minHeight="48dp"
@@ -79,7 +80,8 @@
                     app:layout_constraintEnd_toEndOf="@+id/userinput"
                     app:layout_constraintStart_toStartOf="@+id/userinput"
                     app:layout_constraintTop_toTopOf="@+id/Password"
-                    tools:ignore="SpeakableTextPresentCheck" />
+                    tools:ignore="SpeakableTextPresentCheck"
+                    android:autofillHints="" />
 
                 <TextView
                     android:id="@+id/Login1"

@@ -1,15 +1,18 @@
 package com.example.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class Basicfrag : Fragment()
 {
@@ -22,28 +25,48 @@ class Basicfrag : Fragment()
         val message = view.findViewById<TextView>(R.id.Viewone)
         val reargs = this.arguments
         val input = reargs?.getString("Message")
-        message.text="Hii welcome $input"
-        val recyclerView=view.findViewById<RecyclerView>(R.id.RecycleList)
-        var adapter = Adapter(playersdata())
+        "Hii welcome $input".also { message.text = it }
 
-        recyclerView?.itemAnimator = DefaultItemAnimator()
-        recyclerView?.adapter = adapter
-        adapter.notifyDataSetChanged()
+        val recyclerView=view.findViewById<RecyclerView>(R.id.RecycleList)
+   //     val lLayoutManager = LinearLayoutManager(this)
+     //   recyclerView?.layoutManager = lLayoutManager
+        val url = "https://run.mocky.io/v3/"
+        val rf = Retrofit.Builder()
+            .baseUrl(url)
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+            .create(RetrofitService::class.java)
+        val rfData = rf.playerlist()
+
+
+
+
+        rfData.enqueue(object : Callback<List<Attributes>?>
+        {
+            override fun onResponse(call: Call<List<Attributes>?>, response: Response<List<Attributes>?>)
+            {
+               val responseBody = response.body()
+                recyclerView?.itemAnimator = DefaultItemAnimator()
+                val myadapter = responseBody?.let { Adapter(it) }
+                // myadapter.notifyDataSetChanged()
+                recyclerView?.adapter = myadapter
+            }
+
+            override fun onFailure(call: Call<List<Attributes>?>, t: Throwable)
+            {
+
+            }
+        })
+
+
+
+
         return view
     }
 
-
-
-    private fun playersdata(): ArrayList<Names>
-    {
-           var result = ArrayList<Names>()
-        for (i in 0..19)
-        {
-            var eachuser: Names = Names("Suresh and yuvraj Raina")
-            result.add(eachuser)
-        }
-           return result
     }
 
 
-}
+
+
+

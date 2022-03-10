@@ -1,14 +1,13 @@
 package com.example.login
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
-import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.fragment.app.Fragment
 
 
 class Firstpage : Fragment()
@@ -30,7 +29,7 @@ class Firstpage : Fragment()
             login.setOnClickListener {
                 val username=user.text.toString()
                 val password=pass.text.toString()
-                       if(username.isNullOrEmpty() || password.isNullOrEmpty())
+                       if(username.isEmpty() || password.isEmpty())
                        {
                            Toast.makeText(activity,"Fill the required fields",Toast.LENGTH_LONG).show()
                        }
