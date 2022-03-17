@@ -5,41 +5,36 @@
     android:layout_height="match_parent">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/RecycleList"
+        android:id="@+id/player_recycler"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-
-
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Nextpage" />
+        app:layout_constraintTop_toBottomOf="@+id/next_page" />
 
     <TextView
-        android:id="@+id/Viewone"
+        android:id="@+id/username_transfer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:background="@color/blue"
-        android:hint="@string/welcome"
+        android:text="@string/welcome"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
-
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/Nextpage"
+        android:id="@+id/next_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="@string/next_page"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Viewone" />
+        app:layout_constraintEnd_toEndOf="@+id/username_transfer"
+        app:layout_constraintStart_toStartOf="@+id/username_transfer"
+        app:layout_constraintTop_toBottomOf="@+id/username_transfer" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -1,20 +1,21 @@
 <resources>
     <string name="app_name">Login</string>
-    <string name="Username">Username</string>
-    <string name="Password">Password</string>
-    <string name="Login">Login</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
     <string name="signup">signup</string>
     <string name="welcome">WELCOME</string>
     <string name="cricketer">CRICKETER</string>
 
-    <string name="Greetings">Hii Welcome, %1$s</string>
+    <string name="greetings">Hii Welcome, %1$s</string>
 
-    <string name="Dynamic">HetrogenousLayouts</string>
+    <string name="dynamic">HetrogenousLayouts</string>
     <string name="special">special</string>
     <string name="enter_username">Enter Username</string>
     <string name="enter_password">Enter password</string>
     <string name="next_page">Next Page</string>
     <string name="textarea">texthint</string>
-    <string name="Hints">enter your hint</string>
+    <string name="hints">enter your hint</string>
     <string name="submit">submit</string>
+    <string name="handled_text">Handled Text</string>
 </resources>

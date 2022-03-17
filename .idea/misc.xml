@@ -4,15 +4,17 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.282" />
-        <entry key="app/src/main/res/layout/activity_firstpage.xml" value="0.21851851851851853" />
+        <entry key="app/src/main/res/layout/activity_firstpage.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/fragment_basic_frag.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_basic_frag.xml" value="0.48148148148148145" />
         <entry key="app/src/main/res/layout/fragment_hetero_layout.xml" value="0.4566929133858268" />
         <entry key="app/src/main/res/layout/fragment_recycler.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/hori_images.xml" value="0.19932432432432431" />
         <entry key="app/src/main/res/layout/image_card.xml" value="0.33" />
-        <entry key="app/src/main/res/layout/layouts.xml" value="0.28780487804878047" />
-        <entry key="app/src/main/res/layout/ratingcard.xml" value="0.17507418397626112" />
+        <entry key="app/src/main/res/layout/layouts.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/no_view.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/rating_card.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/ratingcard.xml" value="0.5" />
         <entry key="app/src/main/res/layout/textcard.xml" value="0.35520833333333335" />
       </map>
     </option>
