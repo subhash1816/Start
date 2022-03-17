@@ -25,6 +25,7 @@ class Adapter( private val playerList : List<Attributes>) : RecyclerView.Adapter
   }
 
 
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Viewholder {
       val itemView = LayoutInflater.from(parent.context).inflate(R.layout.layouts,parent,false)
       return Viewholder(itemView)
@@ -32,7 +33,7 @@ class Adapter( private val playerList : List<Attributes>) : RecyclerView.Adapter
 
     override fun onBindViewHolder(holder: Viewholder, position: Int) {
      holder.playername?.text = playerList[position].Name
- //   holder.playerimage?.background = playerList[position].Image
+
         Glide.with(holder.itemView.context)
             .load(playerList[position].Image)
             .into(holder.playerimage!!)
