@@ -6,9 +6,7 @@
     <string name="signup">signup</string>
     <string name="welcome">WELCOME</string>
     <string name="cricketer">CRICKETER</string>
-
     <string name="greetings">Hii Welcome, %1$s</string>
-
     <string name="dynamic">HetrogenousLayouts</string>
     <string name="special">special</string>
     <string name="enter_username">Enter Username</string>
