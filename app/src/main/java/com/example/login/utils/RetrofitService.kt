@@ -5,6 +5,6 @@ import retrofit2.Call
 import retrofit2.http.GET
 
 interface RetrofitService {
-    @GET("2ac06927-00d9-41ad-a5ef-5ccfdd26d21b")
+    @GET("9e8b6d48-5f08-49c9-ac15-38947bccae0a")
     fun playerlist(): Call<List<Attributes>>
 }

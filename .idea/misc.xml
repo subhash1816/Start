@@ -6,6 +6,8 @@
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.282" />
         <entry key="app/src/main/res/layout/activity_firstpage.xml" value="0.5" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/favourite_place_card.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/favourite_player_card.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/fragment_basic_frag.xml" value="0.48148148148148145" />
         <entry key="app/src/main/res/layout/fragment_hetero_layout.xml" value="0.4566929133858268" />
         <entry key="app/src/main/res/layout/fragment_recycler.xml" value="0.18125" />
@@ -13,9 +15,11 @@
         <entry key="app/src/main/res/layout/image_card.xml" value="0.33" />
         <entry key="app/src/main/res/layout/layouts.xml" value="0.5" />
         <entry key="app/src/main/res/layout/no_view.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/player_viewpager.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/rating_card.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/ratingcard.xml" value="0.5" />
         <entry key="app/src/main/res/layout/textcard.xml" value="0.35520833333333335" />
+        <entry key="app/src/main/res/layout/view_pager.xml" value="0.4603174603174603" />
       </map>
     </option>
   </component>

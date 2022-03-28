@@ -7,9 +7,10 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/player_recycler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginTop="24dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/next_page" />
@@ -30,11 +31,21 @@
         android:id="@+id/next_page"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="24dp"
         android:text="@string/next_page"
-        app:layout_constraintEnd_toEndOf="@+id/username_transfer"
-        app:layout_constraintStart_toStartOf="@+id/username_transfer"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/username_transfer" />
+
+    <Button
+        android:id="@+id/tab_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tab_view"
+        app:layout_constraintBottom_toBottomOf="@+id/next_page"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/next_page"
+        app:layout_constraintTop_toTopOf="@+id/next_page" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
 
