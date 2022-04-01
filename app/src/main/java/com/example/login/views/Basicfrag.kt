@@ -13,7 +13,6 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.login.R
-import com.example.login.ViewPager
 import com.example.login.adapter.Adapter
 import com.example.login.model.Attributes
 import com.example.login.utils.RetrofitService

@@ -10,6 +10,9 @@
     <color name="blue">#5b39c6</color>
     <color name="white">#FFFFFFFF</color>
     <color name="misty_rose">#FFE4E1</color>
+    <color name="periwinkle">#8863fb</color>
+    <color name="dark_purple">#4f3267</color>
+    <color name="black70">#b3000000</color>
     <color name="username_color">#004D40</color>
 
 </resources>
