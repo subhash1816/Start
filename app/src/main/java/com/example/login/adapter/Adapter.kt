@@ -10,7 +10,7 @@ import com.bumptech.glide.Glide
 import com.example.login.model.Attributes
 import com.example.login.R
 
-class Adapter(private val playerList: List<Attributes>) :
+class Adapter(private var playerList: List<Attributes>) :
     RecyclerView.Adapter<Adapter.Viewholder>() {
     class Viewholder(view: View) : RecyclerView.ViewHolder(view) {
         var playerName: TextView? = null
@@ -39,5 +39,8 @@ class Adapter(private val playerList: List<Attributes>) :
 
     override fun getItemCount(): Int {
         return playerList.size
+    }
+    fun updateData(playerList: List<Attributes>){
+        this.playerList = playerList
     }
 }

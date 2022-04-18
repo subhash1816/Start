@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.login.R
 import com.example.login.adapter.Adapter
 import com.example.login.model.Attributes
-import com.example.login.utils.RetrofitService
+import com.example.login.interfaces.RetrofitServicePlayers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -33,7 +33,7 @@ class PlayerRecyclerPager : Fragment() {
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(RetrofitService::class.java)
+            .create(RetrofitServicePlayers::class.java)
         val rfData = rf.playerlist()
 
         playerRecyclerView.addItemDecoration(

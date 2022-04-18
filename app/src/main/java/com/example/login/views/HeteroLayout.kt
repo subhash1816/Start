@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.login.R
 import com.example.login.adapter.AdapterHetro
 import com.example.login.model.MultiViews
-import com.example.login.utils.RetrofitServiceTwo
+import com.example.login.interfaces.RetrofitServicePlaces
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -41,7 +41,7 @@ class HeteroLayout : Fragment() {
             .baseUrl(url)
             .addConverterFactory(GsonConverterFactory.create())
             .build()
-            .create(RetrofitServiceTwo::class.java)
+            .create(RetrofitServicePlaces::class.java)
 
         val rfData = rf.multilist()
         rfData.enqueue(object : Callback<List<MultiViews>?> {
