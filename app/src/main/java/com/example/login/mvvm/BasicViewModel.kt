@@ -11,6 +11,12 @@ import retrofit2.Response
 
 class BasicViewModel : ViewModel() {
     val playerList = MutableLiveData<List<Attributes>>()
+    var uiEvent = MutableLiveData<Int>()
+
+    companion object {
+        const val NEXTPAGE = 1
+    }
+
     fun getAllPlayers() {
         val rfData = RetrofitServicePlayers.getInstance().playerlist()
         rfData.enqueue(object : Callback<List<Attributes>?> {
@@ -18,21 +24,19 @@ class BasicViewModel : ViewModel() {
                 call: Call<List<Attributes>?>,
                 response: Response<List<Attributes>?>
             ) {
-
-
-                if (response.isSuccessful)
-                {
+                if (response.isSuccessful) {
                     playerList.postValue(response.body())
-                 //   newPlayerList = response.body()
+                    Log.d("Success", playerList.toString())
                 }
-
-                //      val myAdapter = responseBody?.let { Adapter(it) }
-
             }
 
             override fun onFailure(call: Call<List<Attributes>?>, t: Throwable) {
                 Log.d("BasicFailure", "onFailure:${t.message} ")
             }
         })
+    }
+
+    fun onNextPageBtnClick() {
+        uiEvent.value = NEXTPAGE
     }
 }

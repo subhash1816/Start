@@ -1,5 +1,6 @@
 package com.example.login.interfaces
 
+import android.util.Log
 import com.example.login.model.Attributes
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -18,5 +19,17 @@ interface RetrofitServicePlayers {
                 .build()
                 .create(RetrofitServicePlayers::class.java)
         }
-    }
+  }
+  /*  companion object {
+       fun getInstance(): RetrofitServicePlayers {
+           val rf = Retrofit.Builder()
+               .baseUrl("https://run.mocky.io/v3/")
+               .addConverterFactory(GsonConverterFactory.create())
+               .build()
+           var printresult = rf.create(RetrofitServicePlayers::class.java)
+           Log.d("companionObject", play)
+           return printresult
+       }
+
+    } */
 }

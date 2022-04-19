@@ -24,7 +24,7 @@ import com.example.login.mvvm.LoginAuthViewModel.Companion.USERNAME_EMPTY
 
 class Firstpage : Fragment() {
 
-    var loginViewModel : LoginAuthViewModel? = null
+   private var loginViewModel : LoginAuthViewModel? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -55,17 +55,17 @@ class Firstpage : Fragment() {
                     loginViewModel?.uiEvent?.value = NONE
 
                //     bundle.putString("Message", usernameOne)
-                    val transaction = fragmentManager.beginTransaction()
-                    val fTwo = Basicfrag()
-                    fTwo.arguments = bundle
-                    transaction.replace(R.id.landing_fragment, fTwo)
-                    transaction.addToBackStack(null)
-                    transaction.commit()
+
 
                 }
 
             }
-
+            val transaction = fragmentManager.beginTransaction()
+            val fTwo = Basicfrag()
+            fTwo.arguments = bundle
+            transaction.replace(R.id.landing_fragment, fTwo)
+            transaction.addToBackStack(null)
+            transaction.commit()
         }
         binding.etUsername.addTextChangedListener(object : TextWatcher{
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -100,13 +100,13 @@ class Firstpage : Fragment() {
             transaction.addToBackStack(null)
             transaction.commit()
         }
-       
+
         return binding.root
     }
 
     fun onUsernameWatcher(username:String)
     {
-        if(username.toString().trim().length > 15)
+        if(username.trim().length > 15)
         {
             loginViewModel?.uiEventUsernameLength?.value = TOO_LONG
         }
