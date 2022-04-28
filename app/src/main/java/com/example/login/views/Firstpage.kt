@@ -24,13 +24,14 @@ import com.example.login.mvvm.LoginAuthViewModel.Companion.USERNAME_EMPTY
 
 class Firstpage : Fragment() {
 
-   private var loginViewModel : LoginAuthViewModel? = null
+    private var loginViewModel: LoginAuthViewModel? = null
+    var username : String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         val binding: ActivityFirstpageBinding =
             DataBindingUtil.inflate(inflater, R.layout.activity_firstpage, container, false)
-         loginViewModel = ViewModelProvider(this).get(LoginAuthViewModel::class.java)
+        loginViewModel = ViewModelProvider(this).get(LoginAuthViewModel::class.java)
         binding.viewmodel = loginViewModel
 
         val fragmentManager = parentFragmentManager
@@ -54,7 +55,7 @@ class Firstpage : Fragment() {
                     Toast.makeText(context, "Login success", Toast.LENGTH_SHORT).show()
                     loginViewModel?.uiEvent?.value = NONE
 
-               //     bundle.putString("Message", usernameOne)
+                    //     bundle.putString("Message", usernameOne)
 
 
                 }
@@ -62,12 +63,13 @@ class Firstpage : Fragment() {
             }
             val transaction = fragmentManager.beginTransaction()
             val fTwo = Basicfrag()
+            bundle.putString("Message", username )
             fTwo.arguments = bundle
             transaction.replace(R.id.landing_fragment, fTwo)
             transaction.addToBackStack(null)
             transaction.commit()
         }
-        binding.etUsername.addTextChangedListener(object : TextWatcher{
+        binding.etUsername.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
 
             }
@@ -82,7 +84,7 @@ class Firstpage : Fragment() {
         })
 
         loginViewModel?.uiEventUsernameLength?.observe(viewLifecycleOwner) {
-            when(it) {
+            when (it) {
                 TOO_LONG -> {
                     binding.usernameInput.error = "Length is too long"
                     loginViewModel?.uiEventUsernameLength?.value = NONE
@@ -104,17 +106,14 @@ class Firstpage : Fragment() {
         return binding.root
     }
 
-    fun onUsernameWatcher(username:String)
-    {
-        if(username.trim().length > 15)
-        {
+    fun onUsernameWatcher(username: String) {
+        if (username.trim().length > 15) {
             loginViewModel?.uiEventUsernameLength?.value = TOO_LONG
-        }
-        else
-        {
+        } else {
+
             loginViewModel?.uiEventUsernameLength?.value = NORMAL
         }
-
+        this.username = username
     }
 }
 

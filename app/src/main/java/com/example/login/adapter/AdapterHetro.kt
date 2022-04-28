@@ -8,9 +8,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.login.model.MultiViews
 import com.example.login.R
-import com.example.login.model.Attributes
+import com.example.login.model.MultiViews
 
 class AdapterHetro(private var Hetrolist: List<MultiViews>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
@@ -126,7 +125,8 @@ class AdapterHetro(private var Hetrolist: List<MultiViews>) :
     override fun getItemCount(): Int {
         return Hetrolist.size
     }
-    fun updateData(placesList: List<MultiViews>){
+
+    fun updateData(placesList: List<MultiViews>) {
         this.Hetrolist = placesList
     }
 

@@ -1,13 +1,13 @@
 package com.example.login.mvvm
 
-import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.login.interfaces.RetrofitServicePlayers
+import androidx.lifecycle.viewModelScope
+import com.example.login.interfaces.RetrofitInstanceApi
 import com.example.login.model.Attributes
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class BasicViewModel : ViewModel() {
     val playerList = MutableLiveData<List<Attributes>>()
@@ -15,28 +15,42 @@ class BasicViewModel : ViewModel() {
 
     companion object {
         const val NEXTPAGE = 1
+        const val TABLAYOUT = 2
     }
+init {
+    viewModelScope.launch {
+        playerList.value = getAllPlayers()
+    }
+}
 
-    fun getAllPlayers() {
-        val rfData = RetrofitServicePlayers.getInstance().playerlist()
-        rfData.enqueue(object : Callback<List<Attributes>?> {
-            override fun onResponse(
-                call: Call<List<Attributes>?>,
-                response: Response<List<Attributes>?>
-            ) {
-                if (response.isSuccessful) {
-                    playerList.postValue(response.body())
-                    Log.d("Success", playerList.toString())
-                }
-            }
+    suspend fun getAllPlayers() : List<Attributes> {
+       return withContext(Dispatchers.IO) {
+           RetrofitInstanceApi.getInstance().playerlist().body()!!
+        }
 
-            override fun onFailure(call: Call<List<Attributes>?>, t: Throwable) {
-                Log.d("BasicFailure", "onFailure:${t.message} ")
-            }
-        })
+
+        /*  rfData.enqueue(object : Callback<List<Attributes>?> {
+              override fun onResponse(
+                  call: Call<List<Attributes>?>,
+                  response: Response<List<Attributes>?>
+              ) {
+                  if (response.isSuccessful) {
+                      playerList.postValue(response.body())
+                      Log.d("Success", "calling API")
+                  }
+              }
+
+              override fun onFailure(call: Call<List<Attributes>?>, t: Throwable) {
+                  Log.d("BasicFailure", "onFailure:${t.message} ")
+              }
+          })  */
     }
 
     fun onNextPageBtnClick() {
         uiEvent.value = NEXTPAGE
+    }
+
+    fun onTabLayoutBtnClick() {
+        uiEvent.value = TABLAYOUT
     }
 }

@@ -12,6 +12,7 @@ import com.example.login.adapter.Adapter
 import com.example.login.databinding.FragmentBasicFragBinding
 import com.example.login.mvvm.BasicViewModel
 import com.example.login.mvvm.BasicViewModel.Companion.NEXTPAGE
+import com.example.login.mvvm.BasicViewModel.Companion.TABLAYOUT
 import com.example.login.mvvm.LoginAuthViewModel.Companion.NONE
 
 class Basicfrag : Fragment() {
@@ -23,13 +24,15 @@ class Basicfrag : Fragment() {
     ): View {
         val fragmentManager = parentFragmentManager
         val adapter = Adapter(listOf())
+        val reargs = this.arguments
+        val input = reargs?.getString("Message")
         messagepassing = ViewModelProvider(this).get(BasicViewModel::class.java)
-        messagepassing?.getAllPlayers()
+
         val binding: FragmentBasicFragBinding =
             DataBindingUtil.inflate(inflater, R.layout.fragment_basic_frag, container, false)
         binding.playerRecycler.adapter = adapter
         binding.viewmodel = messagepassing
-
+        binding.usernameTransfer.text = "Hii Welcome $input"
         messagepassing?.playerList?.observe(viewLifecycleOwner) {
             adapter.updateData(it)
             adapter.notifyDataSetChanged()
@@ -44,8 +47,17 @@ class Basicfrag : Fragment() {
                     transaction.commit()
                     messagepassing?.uiEvent?.value = NONE
                 }
+                TABLAYOUT -> {
+                    val transaction = fragmentManager.beginTransaction()
+                    val fTwo = ViewPager()
+                    transaction.replace(R.id.landing_fragment, fTwo)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
+                    messagepassing?.uiEvent?.value = NONE
+                }
             }
         }
+
         return binding.root
     }
 }
