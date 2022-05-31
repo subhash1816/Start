@@ -19,13 +19,14 @@ import com.example.login.mvvm.LoginAuthViewModel.Companion.LOGIN_SUCCESS
 import com.example.login.mvvm.LoginAuthViewModel.Companion.NONE
 import com.example.login.mvvm.LoginAuthViewModel.Companion.NORMAL
 import com.example.login.mvvm.LoginAuthViewModel.Companion.PASSWORD_EMPTY
+import com.example.login.mvvm.LoginAuthViewModel.Companion.SIGNUP
 import com.example.login.mvvm.LoginAuthViewModel.Companion.TOO_LONG
 import com.example.login.mvvm.LoginAuthViewModel.Companion.USERNAME_EMPTY
 
 class Firstpage : Fragment() {
 
     private var loginViewModel: LoginAuthViewModel? = null
-    var username : String? = null
+    var username: String? = null
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -35,11 +36,7 @@ class Firstpage : Fragment() {
         binding.viewmodel = loginViewModel
 
         val fragmentManager = parentFragmentManager
-
-        val view = inflater.inflate(R.layout.activity_firstpage, container, false)
-
         val bundle = Bundle()
-        val signup = view.findViewById<Button>(R.id.signup_btn)
 
         loginViewModel?.uiEvent?.observe(viewLifecycleOwner) { event ->
             when (event) {
@@ -54,20 +51,27 @@ class Firstpage : Fragment() {
                 LOGIN_SUCCESS -> {
                     Toast.makeText(context, "Login success", Toast.LENGTH_SHORT).show()
                     loginViewModel?.uiEvent?.value = NONE
+                    val transaction = fragmentManager.beginTransaction()
+                    val fTwo = Basicfrag()
+                    bundle.putString("Message", username)
+                    fTwo.arguments = bundle
+                    transaction.replace(R.id.landing_fragment, fTwo)
+                    transaction.addToBackStack(null)
+                    transaction.commit()
 
-                    //     bundle.putString("Message", usernameOne)
-
+                }
+                SIGNUP -> {
+                    Toast.makeText(context, "Flow started", Toast.LENGTH_SHORT).show()
+                    loginViewModel?.uiEvent?.value = NONE
+                    val transaction = fragmentManager.beginTransaction()
+                    transaction.replace(R.id.landing_fragment, FlowFragment())
+                    transaction.addToBackStack(null)
+                    transaction.commit()
 
                 }
 
             }
-            val transaction = fragmentManager.beginTransaction()
-            val fTwo = Basicfrag()
-            bundle.putString("Message", username )
-            fTwo.arguments = bundle
-            transaction.replace(R.id.landing_fragment, fTwo)
-            transaction.addToBackStack(null)
-            transaction.commit()
+
         }
         binding.etUsername.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -96,12 +100,7 @@ class Firstpage : Fragment() {
             }
         }
 
-        signup.setOnClickListener {
-            val transaction = fragmentManager.beginTransaction()
-            transaction.add(R.id.landing_fragment, PopupMenu())
-            transaction.addToBackStack(null)
-            transaction.commit()
-        }
+
 
         return binding.root
     }

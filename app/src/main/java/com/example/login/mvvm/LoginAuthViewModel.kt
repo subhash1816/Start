@@ -11,6 +11,7 @@ class LoginAuthViewModel : ViewModel() {
         const val LOGIN_SUCCESS = 5
         const val TOO_LONG = 6
         const val NORMAL = 7
+        const val SIGNUP = 8
     }
 
     var uiEvent: MutableLiveData<Int> = MutableLiveData()
@@ -30,6 +31,9 @@ class LoginAuthViewModel : ViewModel() {
             uiEvent.value = LOGIN_SUCCESS
         }
 
+    }
+    fun onSignupBtnCLick(){
+        uiEvent.value = SIGNUP
     }
 
 }

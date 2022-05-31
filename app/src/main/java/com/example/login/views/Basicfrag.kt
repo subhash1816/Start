@@ -1,6 +1,7 @@
 package com.example.login.views
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -14,6 +15,7 @@ import com.example.login.mvvm.BasicViewModel
 import com.example.login.mvvm.BasicViewModel.Companion.NEXTPAGE
 import com.example.login.mvvm.BasicViewModel.Companion.TABLAYOUT
 import com.example.login.mvvm.LoginAuthViewModel.Companion.NONE
+import kotlin.concurrent.thread
 
 class Basicfrag : Fragment() {
     private var messagepassing: BasicViewModel? = null
@@ -57,7 +59,6 @@ class Basicfrag : Fragment() {
                 }
             }
         }
-
         return binding.root
     }
 }
