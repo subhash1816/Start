@@ -31,7 +31,7 @@ class FlowFragment : Fragment() {
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
                 flowsCounterModel?.uiState?.collect {
-                     binding.flows.text = it.toString()
+                    binding.flows.text = it.toString()
                 }
             }
         }
@@ -44,7 +44,6 @@ class FlowFragment : Fragment() {
                   binding.flows.text = it.toString()
 
               } */
-
 
 
     }
