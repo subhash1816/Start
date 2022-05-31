@@ -1,33 +1,34 @@
 package com.example.login.mvvm
 
 import android.util.Log
+import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.login.repository.FlowsFakeRepo
 import com.example.login.repository.FlowsRepo
-import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class FlowsViewModel : ViewModel() {
-   private var collectRepo: FlowsRepo? = FlowsRepo()
-    var uiEvent: MutableLiveData<Int> = MutableLiveData()
+    private var collectRepo: FlowsRepo? = FlowsRepo()
+   // var uiEvent: MutableLiveData<Int> = MutableLiveData()
 
-    companion object {
-        const val COUNTERDECREMENT = 1
-        const val TABLAYOUT = 2
-    }
-
-
+    private val _uiState = MutableStateFlow(10)
+    val uiState = _uiState.asStateFlow()
 
     fun onCounterBtnClick() {
-        Log.d("button" ,"button clicked")
+        Log.d("button", "button clicked")
         viewModelScope.launch {
-            collectRepo?.countDownFlow()?.collect { count ->
-                Log.d("button", "$count")
 
-                uiEvent.value = count
+            collectRepo?.countDownFlow()?.collect { count ->
+                _uiState.value = count
+        //        uiEvent.value = count
             }
+
 
         }
     }
