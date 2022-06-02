@@ -11,21 +11,71 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="@color/misty_rose">
 
-        <TextView
-            android:id="@+id/flows"
-            android:layout_width="wrap_content"
+        <SearchView
+            android:id="@+id/search_box"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:hint="counter part"
-            android:onClick="@{() -> viewModel.onCounterBtnClick()}"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/corners_weather"
+            android:iconifiedByDefault="false"
             android:padding="12dp"
-            android:textColor="@color/blue"
-            android:textSize="16sp"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:queryHint="Enter your place"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+
+        <TextView
+            android:id="@+id/region"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/corners_weather"
+            android:hint="Place"
+            android:padding="12dp"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search_box" />
+
+        <TextView
+            android:id="@+id/temperature"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/corners_weather"
+            android:hint="Temperature"
+            android:padding="12dp"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/region" />
+
+        <Button
+            android:id="@+id/fetch_weather"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/corners_weather"
+            android:onClick="@{() -> viewModel.onGoBtnClick()}"
+            android:text="@string/go"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+
+            app:layout_constraintTop_toBottomOf="@id/temperature" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
