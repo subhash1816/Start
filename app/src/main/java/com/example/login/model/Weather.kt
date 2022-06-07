@@ -3,7 +3,8 @@ package com.example.login.model
 import com.google.gson.annotations.SerializedName
 
 data class Weather(
-    @SerializedName("location") val loc : Location?,
-    @SerializedName("current") val current : Current?
+    @SerializedName("location") var loc : Location? = null,
+    @SerializedName("current") var current : Current? = null,
+    @SerializedName("error") var failure : NoLocation? = null
 )
 

@@ -3,7 +3,7 @@
     <string name="username">Username</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
-    <string name="signup">signup</string>
+    <string name="weather">WEATHER</string>
     <string name="welcome">WELCOME</string>
     <string name="cricketer">CRICKETER</string>
     <string name="greetings">Hii Welcome, %1$s</string>

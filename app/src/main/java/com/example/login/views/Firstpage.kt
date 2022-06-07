@@ -27,6 +27,7 @@ class Firstpage : Fragment() {
 
     private var loginViewModel: LoginAuthViewModel? = null
     var username: String? = null
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {

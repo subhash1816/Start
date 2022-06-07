@@ -18,7 +18,8 @@ interface RetrofitInstanceApi {
     suspend fun multilist(): Response<List<MultiViews>>
 
     @GET("forecast.json?key=44f7310b590145a598a104214220106&days=1&aqi=no&alerts=no")
-    suspend fun weatherlist(@Query("q")place : String?) : Response<Weather>
+    suspend fun weatherlist(@Query("q") place: String?): Response<Weather?>
+
 
     companion object {
         fun getInstance(): RetrofitInstanceApi {
@@ -29,14 +30,14 @@ interface RetrofitInstanceApi {
                 .create(RetrofitInstanceApi::class.java)
         }
 
-        fun getWeatherInstance(): RetrofitInstanceApi{
+        fun getWeatherInstance(): RetrofitInstanceApi {
             return Retrofit.Builder()
                 .baseUrl("https://api.weatherapi.com/v1/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
                 .create(RetrofitInstanceApi::class.java)
         }
-  }
+    }
 
 }
 

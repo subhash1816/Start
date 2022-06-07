@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.appcompat.widget.SearchView
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
@@ -14,12 +15,15 @@ import androidx.lifecycle.repeatOnLifecycle
 import com.example.login.R
 import com.example.login.databinding.FlowsApiBinding
 import com.example.login.mvvm.FlowsViewModel
+import com.example.login.states.LatestReportUiState
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 
 class FlowFragment : Fragment() {
+
     private var flowsCounterModel: FlowsViewModel? = null
     lateinit var binding: FlowsApiBinding
+
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
@@ -33,17 +37,28 @@ class FlowFragment : Fragment() {
 
         lifecycleScope.launch {
             repeatOnLifecycle(Lifecycle.State.STARTED) {
-                flowsCounterModel?.uiState?.collect {
-                    it.loc?.let {location ->
-                        binding.region.text = location.name.toString()
+                flowsCounterModel?.uiStateFlowEvents?.collect { uiState ->
+                    when (uiState) {
+                        is LatestReportUiState.Success -> {
+                            binding.region.text = uiState.weatherNews.loc?.name.toString()
+                            binding.temperature.text = uiState.weatherNews.current?.temp.toString()
+                        }
+                        is LatestReportUiState.Failure -> {
+                            Toast.makeText(
+                                context,
+                                uiState.exception,
+                                Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                        is LatestReportUiState.Loading -> {
+
+                        }
                     }
-                    it.current?.let {cur ->
-                        binding.temperature.text = cur.temp.toString()
-                    }
+
                 }
             }
         }
-        binding.searchBox.setOnQueryTextListener(object :SearchView.OnQueryTextListener,
+        binding.searchBox.setOnQueryTextListener(object : SearchView.OnQueryTextListener,
             android.widget.SearchView.OnQueryTextListener {
             override fun onQueryTextChange(location: String?): Boolean {
                 if (location != null) {

@@ -14,9 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/teal_200"
-
         tools:context=".views.Firstpage">
-
 
         <TextView
             android:id="@+id/username_text"
@@ -31,6 +29,7 @@
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/login_welcome" />
+
         <TextView
             android:id="@+id/password_text"
             android:layout_width="0dp"
@@ -81,7 +80,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="64dp"
-            android:text="@string/signup"
+            android:text="@string/weather"
             android:onClick="@{() -> viewmodel.onSignupBtnCLick()}"
             android:textSize="30sp"
             app:layout_constraintStart_toStartOf="parent"

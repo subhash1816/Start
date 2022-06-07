@@ -16,8 +16,5 @@ data class MultiViews(
     @SerializedName("Hint") val hint: String?
 )
 
-data class WeatherInformation(
-    @SerializedName("temp_c") val temperature: String?,
-    @SerializedName("name") val cityname : String?
-)
+
 
