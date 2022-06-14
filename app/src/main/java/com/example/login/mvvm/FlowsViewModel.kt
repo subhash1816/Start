@@ -29,30 +29,33 @@ class FlowsViewModel : ViewModel() {
         if (place.isNotEmpty()) {
             collectRepo = FlowsRepo(place)
             viewModelScope.launch(Dispatchers.IO) {
+                try {
+                    handleResponse(collectRepo.weatherCall())
+                }catch (exception : Exception ){
 
-                //        _uiStateFlowEvents.emit(LatestReportUiState.Loading)
-                handleResponse(collectRepo.weatherCall())
-
+                }
 
             }
         }
     }
 
     private suspend fun handleResponse(addWeatherInformation: Weather?) {
-        addWeatherInformation?.let {
-            if (addWeatherInformation.failure == null) {
+
+            if (addWeatherInformation?.loc != null) {
+                Log.d("subhash--", "${addWeatherInformation.loc}")
                 _uiStateFlowEvents.emit(LatestReportUiState.Success(addWeatherInformation))
             } else {
-                Log.d("subhash", "${addWeatherInformation.failure!!.message}")
-                _uiStateFlowEvents.emit(LatestReportUiState.Failure(addWeatherInformation.failure!!.message))
+                Log.d("subhash", "${addWeatherInformation?.error?.message}")
+
+                _uiStateFlowEvents.emit(LatestReportUiState.Failure(addWeatherInformation))
             }
+
         }
 
 
-
     }
 
-    private suspend fun handleFailResponse(exception: Exception) {
+  /*  private suspend fun handleFailResponse(exception: Exception) {
         _uiStateFlowEvents.emit(LatestReportUiState.Failure(exception.cause.toString()))
-    }
-}
+    } */
+

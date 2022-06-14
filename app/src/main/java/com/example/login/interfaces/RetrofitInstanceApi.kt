@@ -17,6 +17,9 @@ interface RetrofitInstanceApi {
     @GET("a86df740-3b7b-4213-8874-30d78e37862b")
     suspend fun multilist(): Response<List<MultiViews>>
 
+    //   @GET("forecast.json?key=44f7310b590145a598a104214220106&q=Subhash&days=1&aqi=no&alerts=no")
+    //  suspend fun weatherlist(): Response<Weather?>
+
     @GET("forecast.json?key=44f7310b590145a598a104214220106&days=1&aqi=no&alerts=no")
     suspend fun weatherlist(@Query("q") place: String?): Response<Weather?>
 

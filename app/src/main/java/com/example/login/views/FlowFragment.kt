@@ -40,13 +40,13 @@ class FlowFragment : Fragment() {
                 flowsCounterModel?.uiStateFlowEvents?.collect { uiState ->
                     when (uiState) {
                         is LatestReportUiState.Success -> {
-                            binding.region.text = uiState.weatherNews.loc?.name.toString()
-                            binding.temperature.text = uiState.weatherNews.current?.temp.toString()
+                            binding.region.text = uiState.weatherNews?.loc?.name.toString()
+                            binding.temperature.text = uiState.weatherNews?.current?.temp.toString()
                         }
                         is LatestReportUiState.Failure -> {
                             Toast.makeText(
                                 context,
-                                uiState.exception,
+                                uiState.exception?.error?.message.toString(),
                                 Toast.LENGTH_SHORT
                             ).show()
                         }
