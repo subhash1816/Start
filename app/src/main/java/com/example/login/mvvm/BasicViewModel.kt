@@ -14,7 +14,7 @@ import kotlinx.coroutines.withContext
 class BasicViewModel : ViewModel() {
     val playerList = MutableLiveData<List<Attributes>>()
     var uiEvent = MutableLiveData<Int>()
-
+var html = "<b>Welcome </b>"
     companion object {
         const val NEXTPAGE = 1
         const val TABLAYOUT = 2

@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.example.login.R
 import com.example.login.adapter.Adapter
+import com.example.login.adapter.setHtmlText
 import com.example.login.databinding.FragmentBasicFragBinding
 import com.example.login.mvvm.BasicViewModel
 import com.example.login.mvvm.BasicViewModel.Companion.NEXTPAGE
@@ -34,7 +35,8 @@ class Basicfrag : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_basic_frag, container, false)
         binding.playerRecycler.adapter = adapter
         binding.viewmodel = messagepassing
-        binding.usernameTransfer.text = "Hii Welcome $input"
+      //  binding.usernameTransfer.text = "Hii Welcome $input"
+        setHtmlText(binding.usernameTransfer , messagepassing!!.html)
         messagepassing?.playerList?.observe(viewLifecycleOwner) {
             adapter.updateData(it)
             adapter.notifyDataSetChanged()

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.38333333333333336" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.282" />
         <entry key="app/src/main/res/drawable-v24/shape_corner.xml" value="0.282" />
         <entry key="app/src/main/res/drawable/add_photos_corners.xml" value="0.282" />
@@ -13,7 +14,7 @@
         <entry key="app/src/main/res/layout/favourite_place_card.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/favourite_player_card.xml" value="0.35520833333333335" />
         <entry key="app/src/main/res/layout/flows_api.xml" value="0.1838006230529595" />
-        <entry key="app/src/main/res/layout/fragment_basic_frag.xml" value="0.48148148148148145" />
+        <entry key="app/src/main/res/layout/fragment_basic_frag.xml" value="0.4553805774278215" />
         <entry key="app/src/main/res/layout/fragment_hetero_layout.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_recycler.xml" value="0.18125" />
         <entry key="app/src/main/res/layout/hori_images.xml" value="0.19932432432432431" />
