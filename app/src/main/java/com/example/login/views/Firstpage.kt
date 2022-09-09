@@ -4,6 +4,7 @@ package com.example.login.views
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,11 +55,15 @@ class Firstpage : Fragment() {
                     loginViewModel?.uiEvent?.value = NONE
                     val transaction = fragmentManager.beginTransaction()
                     val fTwo = Basicfrag()
-                    bundle.putString("Message", username)
+                    var obj : Basicfrag ?= null
+                    Log.d("Subhash", "onCreateView: after basic frag all called ")
                     fTwo.arguments = bundle
+                    Log.d("Subhash", "onCreateView: before replace ")
                     transaction.replace(R.id.landing_fragment, fTwo)
                     transaction.addToBackStack(null)
                     transaction.commit()
+                    Log.d("Subhash", "onCreateView: after replace ")
+                    bundle.putString("Message" , username)
 
                 }
                 SIGNUP -> {

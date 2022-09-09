@@ -19,6 +19,12 @@ import com.example.login.mvvm.LoginAuthViewModel.Companion.NONE
 import kotlin.concurrent.thread
 
 class Basicfrag : Fragment() {
+    var i = 10;
+    fun update() : Int {
+        Log.d("Subhash", "update: in basic frag $i")
+        i++;
+        return i;
+    }
     private var messagepassing: BasicViewModel? = null
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -28,6 +34,7 @@ class Basicfrag : Fragment() {
         val fragmentManager = parentFragmentManager
         val adapter = Adapter(listOf())
         val reargs = this.arguments
+        Log.d("Subhash" ,"onCreateView: in basic frag")
         val input = reargs?.getString("Message")
         messagepassing = ViewModelProvider(this).get(BasicViewModel::class.java)
 
@@ -35,8 +42,8 @@ class Basicfrag : Fragment() {
             DataBindingUtil.inflate(inflater, R.layout.fragment_basic_frag, container, false)
         binding.playerRecycler.adapter = adapter
         binding.viewmodel = messagepassing
-      //  binding.usernameTransfer.text = "Hii Welcome $input"
-        setHtmlText(binding.usernameTransfer , messagepassing!!.html)
+        binding.usernameTransfer.text = "Hii Welcome $input"
+      //  setHtmlText(binding.usernameTransfer , messagepassing!!.httml)
         messagepassing?.playerList?.observe(viewLifecycleOwner) {
             adapter.updateData(it)
             adapter.notifyDataSetChanged()
@@ -62,6 +69,11 @@ class Basicfrag : Fragment() {
             }
         }
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        Log.d("Subhash", "onViewCreated: ")
     }
 }
 

@@ -4,6 +4,7 @@ import android.util.Log
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.login.adapter.setHtmlText
 import com.example.login.interfaces.RetrofitInstanceApi
 import com.example.login.model.Attributes
 import kotlinx.coroutines.Dispatchers
@@ -14,7 +15,7 @@ import kotlinx.coroutines.withContext
 class BasicViewModel : ViewModel() {
     val playerList = MutableLiveData<List<Attributes>>()
     var uiEvent = MutableLiveData<Int>()
-var html = "<b>Welcome </b>"
+var httml = "<b>Hello </b>"
     companion object {
         const val NEXTPAGE = 1
         const val TABLAYOUT = 2
